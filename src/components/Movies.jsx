@@ -1,5 +1,6 @@
 import { fetchMovies } from "../api/movie-api.js";
 import { useEffect, useState } from "react";
+import SearchBar from "./SearchBar.jsx";
 
 const Movies = () => {
   const [searchedMovie, setSearchedMovie] = useState([]);
@@ -21,34 +22,31 @@ const Movies = () => {
         if (moviesInfo.Response === "True") {
           setSearchedMovie(moviesInfo.Search);
           setSearchError("");
-          setIsLoading(false);
         } else {
           setSearchedMovie([]);
           setSearchError(moviesInfo.Error);
-          setIsLoading(false);
         }
       } catch (err) {
         setSearchError("Something went wrong!!");
         setSearchedMovie([]);
+      } finally {
         setIsLoading(false);
-      } 
+      }
     };
 
     const loadTimeID = setTimeout(() => fetchData(), 500);
 
     return () => {
-      clearInterval(loadTimeID);
+      clearTimeout(loadTimeID);
     };
   }, [searchBarInput]);
 
   return (
     <>
-      <input
-        type="text"
-        onChange={handleSearch}
-        value={searchBarInput}
-        placeholder="Enter Movie Name Here"
-      />
+    <SearchBar 
+      handleSearch={handleSearch}
+      searchBarInput={searchBarInput}
+    />
       {isLoading && <p>Loading...</p>}
       {searchError && <p>{searchError}</p>}
       {searchedMovie.map((movie) => (

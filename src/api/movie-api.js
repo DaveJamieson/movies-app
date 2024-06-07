@@ -1,5 +1,5 @@
 export const fetchMovies = async (searchQuery) => {
-const apiKey = "721ba629"
+const apiKey = "d9c704de"
 const queryParams = `apiKey=${apiKey}&s=${searchQuery}`
 const url = `https://www.omdbapi.com/?${queryParams}`
 
