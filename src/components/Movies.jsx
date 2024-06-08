@@ -1,5 +1,5 @@
 import { fetchMovies } from "../api/movie-api.js";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useCallback } from "react";
 import SearchBar from "./SearchBar.jsx";
 
 const Movies = () => {
@@ -8,10 +8,10 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchBarInput, setSearchBarInput] = useState("");
 
-  const handleSearch = (event) => {
+  const handleSearch = useCallback((event) => {
     const input = event.target.value;
     setSearchBarInput(input);
-  };
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +48,7 @@ const Movies = () => {
       searchBarInput={searchBarInput}
     />
       {isLoading && <p>Loading...</p>}
-      {searchError && <p>{searchError}</p>}
+      {searchError && !searchBarInput ? <p>Please enter a movie name</p> : <p>{searchError}</p>}
       {searchedMovie.map((movie) => (
         <ul key={movie.imdbID} style={{ listStyle: "none" }}>
           <li>
