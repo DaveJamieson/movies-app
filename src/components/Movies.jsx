@@ -48,8 +48,8 @@ const Movies = () => {
       handleSearch={handleSearch}
       searchBarInput={searchBarInput}
     />
-      {isLoading && <GradientCircularProgress />}
       {searchError && !searchBarInput ? <p>Please enter a movie name</p> : <p>{searchError}</p>}
+      {isLoading && <GradientCircularProgress />}
       {searchedMovie.map((movie) => (
         <ul key={movie.imdbID} style={{ listStyle: "none" }}>
           <li>
