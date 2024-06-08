@@ -1,6 +1,7 @@
 import { fetchMovies } from "../api/movie-api.js";
-import { useEffect, useState,useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import SearchBar from "./SearchBar.jsx";
+import GradientCircularProgress from "./GradientCircularProgress.jsx";
 
 const Movies = () => {
   const [searchedMovie, setSearchedMovie] = useState([]);
@@ -47,7 +48,7 @@ const Movies = () => {
       handleSearch={handleSearch}
       searchBarInput={searchBarInput}
     />
-      {isLoading && <p>Loading...</p>}
+      {isLoading && <GradientCircularProgress />}
       {searchError && !searchBarInput ? <p>Please enter a movie name</p> : <p>{searchError}</p>}
       {searchedMovie.map((movie) => (
         <ul key={movie.imdbID} style={{ listStyle: "none" }}>
