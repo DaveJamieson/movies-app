@@ -1,5 +1,5 @@
 import { fetchMovies } from "../api/movie-api.js";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar.jsx";
 import GradientCircularProgress from "./GradientCircularProgress.jsx";
 
@@ -9,10 +9,10 @@ const Movies = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchBarInput, setSearchBarInput] = useState("");
 
-  const handleSearch = useCallback((event) => {
+  const handleSearch = (event) => {
     const input = event.target.value;
     setSearchBarInput(input);
-  }, []);
+  };
 
   useEffect(() => {
     const fetchData = async () => {

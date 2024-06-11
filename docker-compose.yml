@@ -1,0 +1,40 @@
+version: '3.8'
+
+networks:
+  movies_app: {}
+
+services:
+  webclient:
+    restart: always
+
+    build: 
+      context: ./movies-app-webclient
+      dockerfile: Dockerfile
+
+    ports:
+      - "3000:3000"
+
+    volumes:
+      - ./movies-app-webclient:/app
+
+    networks:
+      - movies_app
+  
+  api: 
+    restart: always
+
+    build: 
+      context: ./movies-app-api
+      dockerfile: Dockerfile
+
+    ports:
+      - "3001:3001"
+
+    volumes:
+      - ./movies-app-api:/app
+
+    networks:
+      - movies_app
+
+    env_file:
+      - .env
