@@ -1,9 +1,10 @@
 const express = require("express");
+const validateMovie = require("../middlewares/validateMovie");
 const router = express.Router();
+const apiKey = process.env.API_KEY
 
-router.get("/movies/:movieName", async function(req, res) {
+router.get("/movies/:movieName", validateMovie, async function(req, res) {
   const movieName = req.params.movieName;
-  const apiKey = process.env.API_KEY
   const queryParams = `apiKey=${apiKey}&&s=${movieName}`
   const url = `https://www.omdbapi.com/?${queryParams}`
 

@@ -16,7 +16,7 @@ const Movies = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-         try {
+       if(searchBarInput !== ''){  try {
         setIsLoading(true);
         const moviesInfo = await fetchMovies(searchBarInput);
         console.log("moviesInfo.Search = ", moviesInfo.Search);
@@ -32,7 +32,7 @@ const Movies = () => {
         setSearchedMovie([]);
       } finally {
         setIsLoading(false);
-      }
+      }}
     };
 
     const loadTimeID = setTimeout(() => fetchData(), 500);
