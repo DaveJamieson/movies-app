@@ -19,7 +19,7 @@ app.get('/', function(req, res){
 })
 // |
 // V
-app.use('/:movieName', moviesRouter)
+app.use('/movies', moviesRouter)
 // |
 // V
 app.listen(port, (function(){
