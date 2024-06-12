@@ -19,19 +19,9 @@ app.get('/', function(req, res){
 })
 // |
 // V
-app.use('/movies/:movieName', async (req, res)=>{
-    const movieName = req.params.movieName
-    const apiKey = "d9c704de"
-    const queryParams = `apiKey=${apiKey}&&s=${movieName}`
-    const url = `https://www.omdbapi.com/?${queryParams}`
-
-    const response = await fetch(url)
-    const data = await response.json()
-    res.status(200).json(data)
-})
+app.use('/:movieName', moviesRouter)
 // |
 // V
 app.listen(port, (function(){
     console.log(`Working on port ${port}`)
-    
 }))

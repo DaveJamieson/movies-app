@@ -1,14 +1,14 @@
 function validateMovie(req, res, next) {
-  const bannedWords = ["dumb", "ass", "crap", "craped"]
-    const movieName = req.params.movieName
-  
-    bannedWords.forEach(bannedWord => {
-      if (movieName.includes(bannedWord)) {
-        res.status(400).send("Movie name contains banned word")
-      }
-    })
+  const bannedWords = ["fuck", "cunt"];
+  const movieName = req.params.movieName;
 
-    next()
+  for (const bannedWord of bannedWords) {
+    if (movieName.includes(bannedWord)) {
+      return res.status(400).send("Searched movie name contains a banned word");
+    }
+  }
+
+  next();
 }
 
-module.exports = validateMovie
+module.exports = validateMovie;
