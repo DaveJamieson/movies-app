@@ -1,5 +1,5 @@
 function validateMovie(req, res, next) {
-  const bannedWords = [];
+  const bannedWords = ["cunt"];
   const movieName = req.params.movieName;
 
   for (const bannedWord of bannedWords) {

@@ -2,6 +2,7 @@ const express = require("express")
 const cors = require("cors")
 const requestLogger = require("./middlewares/requestLogger")
 const moviesRouter = require("./routes/moviesRouter")
+const movieDetailsRouter = require("./routes/movieDetailsRouter")
 const app = express()
 const port = 3001
 
@@ -20,6 +21,9 @@ app.get('/', function(req, res){
 // |
 // V
 app.use('/movies', moviesRouter)
+// |
+// V
+app.use('/movie-details', movieDetailsRouter)
 // |
 // V
 app.listen(port, (function(){

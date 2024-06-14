@@ -1,15 +1,13 @@
+import { fetchMovieDetails } from "../api/movie-api";
 import { useParams } from "react-router-dom";
-
-
 
 const MovieDetails = () => {
 
-const {movieId} = useParams();
+// const {movieId} = useParams();
 
   return (
     <div>
-    <p>MovieDetails</p>
-    <p>MovieId = {movieId}</p>
+
     
     
     
