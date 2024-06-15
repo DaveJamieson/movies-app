@@ -26,3 +26,30 @@ code {
   gap: 1rem;
   text-align: center;
 }
+
+ul :hover{
+  cursor: pointer;
+  color:#E50914;
+}
+
+@media screen and (min-width: 768px) {
+  .movies-list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+  .movie-plot{
+    margin: 0.5rem 4rem;
+  }
+  .movie-details-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem;
+  }
+  .movie-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
