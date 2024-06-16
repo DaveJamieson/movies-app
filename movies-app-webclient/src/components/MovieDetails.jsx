@@ -40,7 +40,7 @@ const MovieDetails = () => {
   }, [movieId]);
 
   return (
-    <div >
+    <div className="movie-details-container">
       {fetchError && <p>{fetchError}</p>}
       {isLoading && <GradientCircularProgress />}
           <h2>{movieDetails.Title}</h2>
@@ -48,7 +48,7 @@ const MovieDetails = () => {
             <strong>Plot:</strong> {movieDetails.Plot}
           </p>
       {movieDetails.Title && (
-        <section className="movie-details-container">
+        <section className="movie-info-container">
         <article className="movie-image">
           <img src={movieDetails.Poster} alt={movieDetails.Title} />
           </article>

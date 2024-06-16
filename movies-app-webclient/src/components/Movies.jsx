@@ -9,6 +9,7 @@ const Movies = () => {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [searchBarInput, setSearchBarInput] = useState("");
+  const [isDisplayed, setIsDisplayed] = useState(false);
 
   const navigate = useNavigate();
   const handleSearch = (event) => {
@@ -31,6 +32,7 @@ const Movies = () => {
           if (moviesInfo.Response === "True") {
             setSearchedMovie(moviesInfo.Search);
             setSearchError("");
+            setIsDisplayed(true);
           } else {
             setSearchedMovie([]);
             setSearchError(moviesInfo.Error);
@@ -52,7 +54,7 @@ const Movies = () => {
   }, [searchBarInput]);
 
   return (
-    <><main>
+    <>
       <SearchBar handleSearch={handleSearch} searchBarInput={searchBarInput} />
       {searchError && !searchBarInput ? (
         <p>Please enter a movie name</p>
@@ -60,17 +62,23 @@ const Movies = () => {
         <p>{searchError}</p>
       )}
       {isLoading && <GradientCircularProgress />}
-      <section className="movies-list">
-      {searchedMovie.map((movie) => (
-        <ul key={movie.imdbID} style={{ listStyle: "none", marginTop: "2rem"}}>
-          <li onClick={() => handleMovieSelection(movie.imdbID)}>
-            <h2>{movie.Title}</h2>
-            <img src={movie.Poster} alt={movie.imdbID} />
-          </li>
-        </ul>
-      ))}
-      </section>
-    </main>
+      {isDisplayed ? (
+        <section className="movies-list">
+          {searchedMovie.map((movie) => (
+            <ul
+              key={movie.imdbID}
+              style={{ listStyle: "none", marginTop: "2rem" }}
+            >
+              <li onClick={() => handleMovieSelection(movie.imdbID)}>
+                <h2>{movie.Title}</h2>
+                <img src={movie.Poster} alt={movie.imdbID} />
+              </li>
+            </ul>
+          ))}
+        </section>
+      ) : (
+        <main></main>
+      )}
     </>
   );
 };

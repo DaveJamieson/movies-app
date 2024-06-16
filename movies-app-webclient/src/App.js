@@ -9,12 +9,13 @@ function App() {
 
   const handleClick = () => {
   navigate("/");
+  window.location.reload();
   }
 
 
   return (
     <div className="App">
-      <h1 onClick={handleClick}> Movies App</h1>
+      <h1 className="main-heading" onClick={handleClick}> Movies App</h1>
 
       <Routes>
         <Route path="/" element={<Movies />} />
