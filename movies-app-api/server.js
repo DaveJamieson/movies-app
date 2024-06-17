@@ -1,9 +1,11 @@
 const express = require("express")
+const connectDB = require("./db/index")
 const cors = require("cors")
 const requestLogger = require("./middlewares/requestLogger")
 const moviesRouter = require("./routes/moviesRouter")
-const movieDetailsRouter = require("./routes/movieDetailsRouter")
 const app = express()
+// Connect to MongoDB
+connectDB()
 const port = 3001
 
 app.use(cors())
@@ -23,7 +25,7 @@ app.get('/', function(req, res){
 app.use('/movies', moviesRouter)
 // |
 // V
-app.use('/movie-details', movieDetailsRouter)
+// app.use('/movie-details', movieDetailsRouter)
 // |
 // V
 app.listen(port, (function(){

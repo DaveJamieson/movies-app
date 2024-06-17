@@ -9,7 +9,6 @@ const Movies = () => {
   const [searchError, setSearchError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [searchBarInput, setSearchBarInput] = useState("");
-  const [isDisplayed, setIsDisplayed] = useState(false);
 
   const navigate = useNavigate();
   const handleSearch = (event) => {
@@ -27,19 +26,17 @@ const Movies = () => {
       if (searchBarInput !== "") {
         try {
           setIsLoading(true);
+          setSearchedMovie([]);
+          setSearchError("");
           const moviesInfo = await fetchMovies(searchBarInput);
           console.log("moviesInfo.Search = ", moviesInfo.Search);
           if (moviesInfo.Response === "True") {
             setSearchedMovie(moviesInfo.Search);
-            setSearchError("");
-            setIsDisplayed(true);
           } else {
-            setSearchedMovie([]);
             setSearchError(moviesInfo.Error);
           }
         } catch (err) {
           setSearchError("Something went wrong!!");
-          setSearchedMovie([]);
         } finally {
           setIsLoading(false);
         }
@@ -62,7 +59,7 @@ const Movies = () => {
         <p>{searchError}</p>
       )}
       {isLoading && <GradientCircularProgress />}
-      {isDisplayed ? (
+      {searchedMovie.length > 0 ? (
         <section className="movies-list">
           {searchedMovie.map((movie) => (
             <ul
