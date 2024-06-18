@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar.jsx";
 import GradientCircularProgress from "./GradientCircularProgress.jsx";
 import { useNavigate } from "react-router-dom";
 import cinemaPicture from "../assets/img/movies-app-background.jpg"
-import movieNight from "../assets/img/movieNight.webp";
+import movieNight from "../assets/img/deadpool.gif";
 
 const Movies = () => {
   const [searchedMovie, setSearchedMovie] = useState([]);
