@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar.jsx";
 import GradientCircularProgress from "./GradientCircularProgress.jsx";
 import { useNavigate } from "react-router-dom";
 import cinemaPicture from "../assets/img/movies-app-background.jpg"
+import movieNight from "../assets/img/movieNight.webp";
 
 const Movies = () => {
   const [searchedMovie, setSearchedMovie] = useState([]);
@@ -77,9 +78,10 @@ const Movies = () => {
           ))}
         </section>
       ) : (
-        <main>
-          <img className="main-image" src={cinemaPicture} alt="Cinema Picture" />
-      </main>
+        <div className="main-image-container" >
+          <img className="main-image" src={cinemaPicture} alt="Cinema" />
+          <img className="main-image-gif" src={movieNight} alt="Movie Night!!" />
+      </div>
       )}
     </>
   );
