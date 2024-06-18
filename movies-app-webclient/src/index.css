@@ -45,15 +45,15 @@ code {
 
 }
 
-main{
-  background-image: url(./assets/img/movies-app-background.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:cover ;
-  /* background-attachment: fixed; */
-min-height: 90vh;
-min-width: 100vw;
-margin-top: 1rem;
+.info-messages{
+  height: 3rem;
+}
+
+.main-image{
+  width: 80vw;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 2rem;
 }
 
 ul{
@@ -65,12 +65,18 @@ ul:hover{
   color:whitesmoke;
 }
 
+img{
+  border-radius: 5px;
+}
+
 input{
   font-size: 1.5rem;
   border-radius: 5px;
   border: none;
   padding: 0.5rem;
   margin-top: 1rem;
+  margin-bottom: 1rem;
+  min-width: 30vw;
 }
 
 input:focus{
@@ -91,7 +97,8 @@ p{
 }
 
 h2{
-  font-size: 1.5rem;
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
 }
 
 .movie-details-container{

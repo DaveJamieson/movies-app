@@ -63,7 +63,7 @@ const MovieDetails = () => {
             <strong>Released:</strong> {movieDetails.Released}
           </p>
           <p>
-            <strong>Runtime:</strong> {movieDetails.Runtime}
+            <strong>Runtime:</strong> {movieDetails.Runtime} { movieDetails.Type}
           </p>
           <p>
             <strong>Genre:</strong> {movieDetails.Genre}

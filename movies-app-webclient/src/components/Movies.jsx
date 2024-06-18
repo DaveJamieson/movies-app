@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar.jsx";
 import GradientCircularProgress from "./GradientCircularProgress.jsx";
 import { useNavigate } from "react-router-dom";
+import cinemaPicture from "../assets/img/movies-app-background.jpg"
 
 const Movies = () => {
   const [searchedMovie, setSearchedMovie] = useState([]);
@@ -53,12 +54,14 @@ const Movies = () => {
   return (
     <>
       <SearchBar handleSearch={handleSearch} searchBarInput={searchBarInput} />
+      <section className="info-messages">
       {searchError && !searchBarInput ? (
         <p>Please enter a movie name</p>
       ) : (
         <p>{searchError}</p>
       )}
       {isLoading && <GradientCircularProgress />}
+      </section>
       {searchedMovie.length > 0 ? (
         <section className="movies-list">
           {searchedMovie.map((movie) => (
@@ -74,7 +77,9 @@ const Movies = () => {
           ))}
         </section>
       ) : (
-        <main></main>
+        <main>
+          <img className="main-image" src={cinemaPicture} alt="Cinema Picture" />
+      </main>
       )}
     </>
   );

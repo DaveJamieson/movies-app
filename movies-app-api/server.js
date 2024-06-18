@@ -3,6 +3,7 @@ const connectDB = require("./db/index")
 const cors = require("cors")
 const requestLogger = require("./middlewares/requestLogger")
 const moviesRouter = require("./routes/moviesRouter")
+const searchHistoryRouter = require("./routes/searchHistoryRouter")
 const app = express()
 // Connect to MongoDB
 connectDB()
@@ -25,7 +26,7 @@ app.get('/', function(req, res){
 app.use('/movies', moviesRouter)
 // |
 // V
-// app.use('/movie-details', movieDetailsRouter)
+app.use('/search-history', searchHistoryRouter)
 // |
 // V
 app.listen(port, (function(){
