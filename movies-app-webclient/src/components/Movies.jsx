@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar.jsx";
 import GradientCircularProgress from "./GradientCircularProgress.jsx";
 import { useNavigate } from "react-router-dom";
-import cinemaPicture from "../assets/img/movies-app-background.jpg"
+import cinemaPicture from "../assets/img/movies-app-background.jpg";
 import movieNight from "../assets/img/deadpool.gif";
 
 const Movies = () => {
@@ -54,14 +54,20 @@ const Movies = () => {
 
   return (
     <>
-      <SearchBar handleSearch={handleSearch} searchBarInput={searchBarInput} />
+      <section className="search-bar-container header">
+        {searchBarInput && isLoading && <GradientCircularProgress />}
+        <SearchBar
+          handleSearch={handleSearch}
+          searchBarInput={searchBarInput}
+        />
+        {searchBarInput && isLoading && <GradientCircularProgress />}
+      </section>
       <section className="info-messages">
-      {searchError && !searchBarInput ? (
-        <p>Please enter a movie name</p>
-      ) : (
-        <p>{searchError}</p>
-      )}
-      {isLoading && <GradientCircularProgress />}
+        {searchError && !searchBarInput ? (
+          <p>Please enter a movie name</p>
+        ) : (
+          <p>{searchError}</p>
+        )}
       </section>
       {searchedMovie.length > 0 ? (
         <section className="movies-list">
@@ -70,18 +76,32 @@ const Movies = () => {
               key={movie.imdbID}
               style={{ listStyle: "none", marginTop: "2rem" }}
             >
-              <li onClick={() => handleMovieSelection(movie.imdbID)}>
-                <h2>{movie.Title}</h2>
-                <img src={movie.Poster} alt={movie.imdbID} />
-              </li>
+              <section className="movies-list-item-container">
+                <li onClick={() => handleMovieSelection(movie.imdbID)}>
+                  <h2 className="movies-list-item-title" title={movie.Title}>
+                    {movie.Title}
+                  </h2>
+                  <article className="movies-list-item-image-container">
+                    <img
+                      className="movies-list-item-image"
+                      src={movie.Poster}
+                      alt={movie.imdbID}
+                    />
+                  </article>
+                </li>
+              </section>
             </ul>
           ))}
         </section>
       ) : (
-        <div className="main-image-container" >
+        <div className="main-image-container">
           <img className="main-image" src={cinemaPicture} alt="Cinema" />
-          <img className="main-image-gif" src={movieNight} alt="Movie Night!!" />
-      </div>
+          <img
+            className="main-image-gif"
+            src={movieNight}
+            alt="Movie Night!!"
+          />
+        </div>
       )}
     </>
   );

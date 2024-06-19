@@ -1,27 +1,15 @@
 import Movies from "./components/Movies";
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
-import { useNavigate } from "react-router-dom";
-
+import Header from "./components/Header";
 function App() {
-
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-  navigate("/");
-  window.location.reload();
-  }
-
-
   return (
     <div className="App">
-      <h1 className="main-heading" onClick={handleClick}> Movies App</h1>
-
+      <Header />
       <Routes>
         <Route path="/" element={<Movies />} />
         <Route path="/movie-details/:movieId" element={<MovieDetails />} />
       </Routes>
-
     </div>
   );
 }
