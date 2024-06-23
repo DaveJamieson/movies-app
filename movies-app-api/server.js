@@ -1,9 +1,11 @@
+
 const express = require("express");
 const connectDB = require("./db/index");
 const cors = require("cors");
 const requestLogger = require("./middlewares/requestLogger");
 const moviesRouter = require("./routes/moviesRouter");
 const searchHistoryRouter = require("./routes/searchHistoryRouter");
+const path = require("path");
 const app = express();
 // Connect to MongoDB
 connectDB();
@@ -16,6 +18,10 @@ app.use(express.json());
 // we are going to log the request info
 // before we move forward
 app.use(requestLogger);
+// |
+// V
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "build")));
 // |
 // V
 app.get("/", function (req, res) {
