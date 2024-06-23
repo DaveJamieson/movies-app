@@ -1,12 +1,15 @@
 const express = require("express");
 const searchHistDB = require("../models/searchHistory");
 const router = express.Router();
+const Utils = require("../utils/apiUtils");
+const searchHistoryDb = require("../models/searchHistory");
 
-router.get("/", async function (req, res){
-    // check the search history from DB
+router.get("/", async function (req, res) {
 
-    // send it back to the client
-    res.send("We are working on this feature atm...")
-})
+  // search for searchHistory in mongodb
+//   const search = await searchHistoryDb.findSearchedMovie(movieID)
+
+  res.send("search history will be stored here");
+});
 
 module.exports = router;

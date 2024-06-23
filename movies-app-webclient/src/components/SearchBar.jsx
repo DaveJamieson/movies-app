@@ -5,7 +5,7 @@ const SearchBar = ({ handleSearch, searchBarInput }) => {
       name="searchBar"
       onChange={handleSearch}
       value={searchBarInput}
-      placeholder="Enter A Movie Name"
+      placeholder="Search For A Movie Here!!"
     />
   );
 };

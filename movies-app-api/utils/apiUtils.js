@@ -49,10 +49,18 @@ function createNewMovieInDatabase (movieData){
   }
 }
 
+function createSearchEntryInDatabase (searchData){
+  return {
+    Search: searchData.Title,
+    Count: searchData.Count
+  }
+}
+
 
 const Utils = {
   createOmdbLikeResponse,
   createNewMovieInDatabase,
+  createSearchEntryInDatabase
 }
 
 module.exports = Utils;
