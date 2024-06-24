@@ -1,6 +1,4 @@
-// const API_URL = process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://movies-app-j7xn.onrender.com";
-
-const API_URL = "https://movies-app-j7xn.onrender.com";
+const API_URL = process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://movies-app-j7xn.onrender.com";
 
 export const fetchMovies = async (searchQuery) => {
   console.log("searchQuery = ", searchQuery);
