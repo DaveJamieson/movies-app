@@ -60,7 +60,8 @@ app.use(requestLogger);
 app.use(express.static(path.join(__dirname, "build")));
 app.use(
 	cors({
-		origin: "https://movies-app-j7xn.onrender.com", // replace with your frontend URL
+		origin: "http://localhost:3000",
+		// https://movies-app-j7xn.onrender.com"
 		methods: ["GET", "POST", "PUT", "DELETE"],
 		credentials: true,
 	})

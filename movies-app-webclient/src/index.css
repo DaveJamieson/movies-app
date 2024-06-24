@@ -34,15 +34,22 @@ code {
 
 .main-heading {
   cursor: pointer;
-  margin: 1rem;
   transition: color 0.3s ease-in-out;
   font-size: 3rem;
   width: fit-content;
   color: #000;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
 }
 
 .main-heading:hover {
   color: #283618;
+}
+
+.main-heading-logo{
+  width: 6rem;
 }
 
 .search-bar-container {
@@ -64,10 +71,6 @@ input {
 
 input:focus {
   outline: none;
-}
-
-input:-webkit-autofill {
-  font-size: 1.5rem;
 }
 
 .info-messages {
@@ -188,6 +191,10 @@ h2 {
 }
 
 @media screen and (max-width: 767px) {
+input{
+  font-size: 1rem;
+}
+
   .movies-list {
     margin: 0 1rem;
   }
@@ -211,6 +218,10 @@ h2 {
 }
 
 @media screen and (min-width: 768px) {
+  input{
+    font-size: 1.5rem;
+  }
+
   .movies-list {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -234,6 +245,10 @@ h2 {
 }
 
 @media screen and (min-width: 1200px) {
+  input{
+    font-size: 1.5rem;
+  }
+
   .movies-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -251,6 +266,10 @@ h2 {
 }
 
 @media screen and (min-width: 1500px) {
+  input{
+    font-size: 1.5rem;
+  }
+  
   .movies-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

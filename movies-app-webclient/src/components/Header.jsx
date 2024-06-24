@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/img/logo.png"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -11,8 +12,7 @@ const Header = () => {
   return (
     <div className="header">
       <h1 className="main-heading" onClick={handleHeadingClick}>
-        {" "}
-        Movies App
+        <img src={logo} alt="logo" className="main-heading-logo"/>
       </h1>
     </div>
   );
