@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { fetchSearchHistory } from "../api/movie-api";
 import { useNavigate } from "react-router-dom";
+import GradientCircularProgress from "./GradientCircularProgress.jsx";
 
 const SearchHistory = () => {
   const [history, setHistory] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   const handleMovieClick = (movieName) => {
@@ -12,42 +15,47 @@ const SearchHistory = () => {
   };
 
   useEffect(() => {
-    let isMounted = true; // Flag to track if component is mounted
-
     const fetchHistory = async () => {
+      setIsLoading(true);
       try {
         const data = await fetchSearchHistory();
-        if (isMounted) {
-          console.log("data = ", data);
-          setHistory(data);
-        }
+        setHistory(data);
       } catch (error) {
+        setError("Failed to fetch search history");
         console.error("Failed to fetch search history:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchHistory();
+   fetchHistory()
 
-    // Cleanup function to prevent memory leaks
-    return () => {
-      isMounted = false;
-    };
-  }, []); // Empty dependency array ensures useEffect runs only on mount
+
+  }, []);
 
   return (
     <div className="search-history-container">
-      <h2> 
-Popular Searches
-      </h2>
-      <ul className="search-history-list">
-     
-        {history.map((item) => (
-          <li className="search-history-list-item" key={item._id} onClick={() => handleMovieClick(item.imdb_ID)}>
-            <p>{item.movie_name}</p>
-            <p>{item.search_count}</p>
-          </li>
-        ))}
-      </ul>
+      <h2>Popular Searches</h2>
+      {isLoading ? (
+        <GradientCircularProgress />
+      ) : error ? (
+        <p>{error}</p>
+      ) : history.length === 0 ? (
+        <p>No search history available.</p>
+      ) : (
+        <ul className="search-history-list">
+          {history.map((item) => (
+            <li
+              className="search-history-list-item"
+              key={item._id}
+              onClick={() => handleMovieClick(item.imdb_ID)}
+            >
+              <p>{item.movie_name}</p>
+              <p>{item.search_count}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
