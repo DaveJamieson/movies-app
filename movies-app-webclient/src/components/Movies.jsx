@@ -1,10 +1,11 @@
-import { fetchMovies } from "../api/movie-api.js";
+import { fetchMovies, logSearch } from "../api/movie-api.js";
 import React, { useEffect, useState } from "react";
 import SearchBar from "./SearchBar.jsx";
 import GradientCircularProgress from "./GradientCircularProgress.jsx";
 import { useNavigate } from "react-router-dom";
 import cinemaPicture from "../assets/img/movies-app-background.jpg";
 import movieNight from "../assets/img/deadpool.gif";
+import SearchHistory from "./SearchHistory.jsx";
 
 const Movies = () => {
   const [searchedMovie, setSearchedMovie] = useState([]);
@@ -18,8 +19,9 @@ const Movies = () => {
     setSearchBarInput(input);
   };
 
-  const handleMovieSelection = (imdbID) => {
-    const movieDetailsRoute = `/movie-details/${imdbID}`;
+  const handleMovieSelection = (imdbId, title) => {
+    logSearch(imdbId, title);
+    const movieDetailsRoute = `/movie-details/${imdbId}`;
     navigate(movieDetailsRoute);
   };
 
@@ -74,10 +76,9 @@ const Movies = () => {
           {searchedMovie.map((movie) => (
             <ul
               key={movie.imdbID}
-              style={{ listStyle: "none", marginTop: "2rem" }}
             >
               <section className="movies-list-item-container">
-                <li onClick={() => handleMovieSelection(movie.imdbID)}>
+                <li onClick={() => handleMovieSelection(movie.imdbID, movie.Title)}>
                   <h2 className="movies-list-item-title" title={movie.Title}>
                     {movie.Title}
                   </h2>
@@ -93,7 +94,7 @@ const Movies = () => {
             </ul>
           ))}
         </section>
-      ) : (
+      ) : (<div className="main-image-and-search-history-container">
         <div className="main-image-container">
           <img className="main-image" src={cinemaPicture} alt="Cinema" />
           <img
@@ -102,6 +103,8 @@ const Movies = () => {
             alt="Movie Night!!"
           />
         </div>
+      <SearchHistory />
+      </div>
       )}
     </>
   );

@@ -1,15 +1,35 @@
-const express = require("express");
-const searchHistDB = require("../models/searchHistory");
+const express = require('express');
 const router = express.Router();
-const Utils = require("../utils/apiUtils");
-const searchHistoryDb = require("../models/searchHistory");
+const { SearchHistory } = require('../models/searchHistory');
 
-router.get("/", async function (req, res) {
+// Log search
+router.post('/log', async (req, res) => {
+    const { imdb_ID, movie_name } = req.body;
 
-  // search for searchHistory in mongodb
-//   const search = await searchHistoryDb.findSearchedMovie(movieID)
+    try {
+        let searchEntry = await SearchHistory.findOne({ imdb_ID });
+        if (searchEntry) {
+            searchEntry.search_count += 1;
+        } else {
+            searchEntry = new SearchHistory({ imdb_ID, movie_name });
+        }
+        await searchEntry.save(); // Save the updated or new entry
+        res.status(200).send(searchEntry);
+    } catch (err) {
+        console.error('Error logging search:', err);
+        res.status(500).send(err);
+    }
+});
 
-  res.send("search history will be stored here");
+
+// Fetch search history
+router.get('/', async (req, res) => {
+    try {
+        const history = await SearchHistory.find().sort({ search_count: -1 });
+        res.status(200).send(history);
+    } catch (err) {
+        res.status(500).send(err);
+    }
 });
 
 module.exports = router;

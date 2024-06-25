@@ -50,6 +50,7 @@ code {
 
 .main-heading-logo{
   width: 6rem;
+  cursor: pointer;
 }
 
 .search-bar-container {
@@ -102,7 +103,27 @@ input:focus {
 ul {
   color: #fefae0;
   cursor: pointer;
+  list-style: none;
   transition: color 0.3s ease-in-out;
+  margin: 2rem 0rem;
+}
+
+.search-history-container{
+  text-align: center;
+  min-width: 25vw;
+}
+
+.search-history-list p{
+  margin: 0;
+  color: #000;
+  margin: 0.25rem 0rem;
+}
+
+.search-history-list-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
 img {
@@ -129,7 +150,7 @@ img {
   min-height: 100%;
   background-color: #283618;
   transition: background-color 0.5s ease-in-out;
-}
+  margin: 2rem 0rem;}
 
 .movies-list-item-container:hover {
   background-color: #606c38;
@@ -195,8 +216,16 @@ input{
   font-size: 1rem;
 }
 
+.search-history-list{
+  margin-top: 1rem;
+}
+
+.search-history-list p{
+  margin: 0.5rem;
+}
+
   .movies-list {
-    margin: 0 1rem;
+    margin: 1rem;
   }
 
   .movie-plot {
@@ -220,6 +249,13 @@ input{
 @media screen and (min-width: 768px) {
   input{
     font-size: 1.5rem;
+  }
+  .main-image-and-search-history-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   }
 
   .movies-list {
@@ -248,6 +284,7 @@ input{
   input{
     font-size: 1.5rem;
   }
+
 
   .movies-list {
     display: grid;
