@@ -18,7 +18,7 @@ app.use(requestLogger);
 app.use(
 	cors({
 		// frontend url goes here
-		origin: "http://localhost:3000",
+		origin: " https://movies-app-j7xn.onrender.com",
 		// https://movies-app-j7xn.onrender.com
 		methods: ["GET", "POST", "PUT", "DELETE"],
 		credentials: true,
