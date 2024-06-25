@@ -216,6 +216,14 @@ input{
   font-size: 1rem;
 }
 
+.main-image-and-search-history-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  }
+
 .search-history-list{
   margin-top: 1rem;
 }
