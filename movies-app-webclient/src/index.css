@@ -216,6 +216,10 @@ input{
   font-size: 1rem;
 }
 
+.main-image-container {
+  width: 80vw;
+}
+
 .main-image-and-search-history-container{
   display: flex;
   flex-direction: column;
