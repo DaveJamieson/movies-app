@@ -21,9 +21,9 @@ const Header = ({
   };
 
   const handleSearch = (event) => {
+    navigate("/");
     const input = event.target.value;
     setSearchBarInput(input);
-    navigate("/");
   };
 
   useEffect(() => {
@@ -59,10 +59,9 @@ const Header = ({
       <h1 className="main-heading" onClick={handleHeadingClick}>
         <img src={logo} alt="logo" className="main-heading-logo" />
         </h1>
+        {searchBarInput && isLoading && <GradientCircularProgress />}
       <section className="search-bar-container">
-        {searchBarInput && isLoading && <GradientCircularProgress />}
         <SearchBar handleSearch={handleSearch} searchBarInput={searchBarInput} />
-        {searchBarInput && isLoading && <GradientCircularProgress />}
       </section>
   
     </div>

@@ -35,7 +35,7 @@ const SearchHistory = () => {
 
   return (
     <div className="search-history-container">
-      <h2>Popular Searches</h2>
+      <h2 className="search-history-title">Popular Searches</h2>
       {isLoading ? (
         <GradientCircularProgress />
       ) : error ? (

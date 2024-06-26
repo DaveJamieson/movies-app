@@ -44,7 +44,7 @@ const MovieDetails = () => {
       <div className="movie-details-container">
         {fetchError && <p>{fetchError}</p>}
         {isLoading && <GradientCircularProgress />}
-        <h2>{movieDetails.Title}</h2>
+        <h2 className="movie-details-title">{movieDetails.Title}</h2>
         <p className="movie-plot">
           <strong>Plot:</strong> {movieDetails.Plot}
         </p>

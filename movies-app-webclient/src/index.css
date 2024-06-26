@@ -36,7 +36,7 @@ code {
   justify-content: space-between;
   align-items: center;
   padding-right: 2rem;
-  padding-left: 1rem;
+  padding-left: 0.5rem;
 }
 
 .main-heading {
@@ -56,6 +56,14 @@ code {
   cursor: pointer;
 }
 
+.search-bar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
 input {
   text-align: center;
   font-size: 1.5rem;
@@ -63,6 +71,7 @@ input {
   border: none;
   padding: 0.5rem;
   min-width: 50vw;
+  margin-left: 1rem;
 }
 
 input:focus {
@@ -71,6 +80,7 @@ input:focus {
 
 .info-messages {
   height: 3rem;
+  padding-top: 1rem;
 }
 
 .main-image-container {
@@ -109,9 +119,7 @@ ul {
 }
 
 .search-history-list p{
-  margin: 0;
   color: #000;
-  margin: 0.25rem 0rem;
 }
 
 .search-history-list-item{
@@ -171,7 +179,6 @@ img {
 
 p {
   font-size: 1.5rem;
-  margin: 1rem;
 }
 
 h2 {
@@ -184,7 +191,11 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: 2rem;
+}
+
+.movie-details-title{
+  text-align: center;
 }
 
 .movie-info-container {
@@ -205,11 +216,18 @@ h2 {
 .movie-image {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 767px) {
-input{
+
+.header{
+  justify-content: space-between;
+}
+
+  input{
   font-size: 1rem;
+  width: 30vw;
 }
 
 .main-image-container {
@@ -221,18 +239,13 @@ input{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
   padding: 1rem 2rem;
   }
 
-.search-history-list{
-  margin-top: 1rem;
-}
-
-.search-history-list p{
-
-  margin: 0.5rem;
+.search-history-title{
+  margin: 1rem;
 }
 
   .movies-list {
@@ -240,15 +253,15 @@ input{
   }
 
   .movie-plot {
-    margin: 1rem 1.5rem;
+    padding: 1rem 2rem;
   }
 
   .movie-info-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: 1rem;
+    align-items: stretch;
+    padding: 1rem;
     gap: 1rem;
   }
 
