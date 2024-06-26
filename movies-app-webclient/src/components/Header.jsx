@@ -58,12 +58,14 @@ const Header = ({
     <div className="header">
       <h1 className="main-heading" onClick={handleHeadingClick}>
         <img src={logo} alt="logo" className="main-heading-logo" />
-        </h1>
-        {searchBarInput && isLoading && <GradientCircularProgress />}
+      </h1>
+      {searchBarInput && isLoading && <GradientCircularProgress />}
       <section className="search-bar-container">
-        <SearchBar handleSearch={handleSearch} searchBarInput={searchBarInput} />
+        <SearchBar
+          handleSearch={handleSearch}
+          searchBarInput={searchBarInput}
+        />
       </section>
-  
     </div>
   );
 };

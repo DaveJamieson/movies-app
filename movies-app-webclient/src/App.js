@@ -27,13 +27,8 @@ function App() {
           element={
             <Movies
               searchedMovie={searchedMovie}
-              setSearchedMovie={setSearchedMovie}
               searchError={searchError}
-              setSearchError={setSearchError}
-              isLoading={isLoading}
-              setIsLoading={setIsLoading}
               searchBarInput={searchBarInput}
-              setSearchBarInput={setSearchBarInput}
             />
           }
         />

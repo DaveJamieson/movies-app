@@ -5,16 +5,7 @@ import movieNight from "../assets/img/deadpool.gif";
 import SearchHistory from "./SearchHistory.jsx";
 import { logSearch } from "../api/movie-api.js";
 
-const Movies = ({
-  searchedMovie,
-  setSearchedMovie,
-  searchError,
-  setSearchError,
-  isLoading,
-  setIsLoading,
-  searchBarInput,
-  setSearchBarInput,
-}) => {
+const Movies = ({ searchedMovie, searchError, searchBarInput }) => {
   const navigate = useNavigate();
   const handleMovieSelection = (imdbId, title) => {
     logSearch(imdbId, title);
@@ -36,12 +27,20 @@ const Movies = ({
           {searchedMovie.map((movie) => (
             <ul key={movie.imdbID}>
               <section className="movies-list-item-container">
-                <li onClick={() => handleMovieSelection(movie.imdbID, movie.Title)}>
+                <li
+                  onClick={() =>
+                    handleMovieSelection(movie.imdbID, movie.Title)
+                  }
+                >
                   <h2 className="movies-list-item-title" title={movie.Title}>
                     {movie.Title}
                   </h2>
                   <article className="movies-list-item-image-container">
-                    <img className="movies-list-item-image" src={movie.Poster} alt={movie.imdbID} />
+                    <img
+                      className="movies-list-item-image"
+                      src={movie.Poster}
+                      alt={movie.imdbID}
+                    />
                   </article>
                 </li>
               </section>
@@ -52,7 +51,11 @@ const Movies = ({
         <div className="main-image-and-search-history-container">
           <div className="main-image-container">
             <img className="main-image" src={cinemaPicture} alt="Cinema" />
-            <img className="main-image-gif" src={movieNight} alt="Movie Night!!" />
+            <img
+              className="main-image-gif"
+              src={movieNight}
+              alt="Movie Night!!"
+            />
           </div>
           <SearchHistory />
         </div>
