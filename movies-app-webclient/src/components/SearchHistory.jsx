@@ -41,7 +41,7 @@ const SearchHistory = () => {
       ) : error ? (
         <p>{error}</p>
       ) : history.length === 0 ? (
-        <p>No search history available.</p>
+        <p style={{ textAlign: "center" }}>No search history available.</p>
       ) : (
         <ul className="search-history-list">
           {history.map((item) => (
