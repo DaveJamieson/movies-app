@@ -23,6 +23,7 @@ const Header = ({
   const handleSearch = (event) => {
     const input = event.target.value;
     setSearchBarInput(input);
+    navigate("/");
   };
 
   useEffect(() => {

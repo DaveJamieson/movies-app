@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/static/css/main.61942670.css",
-    "main.js": "/static/js/main.9cf1002e.js",
+    "main.js": "/static/js/main.ec651e0e.js",
     "static/js/453.b988c813.chunk.js": "/static/js/453.b988c813.chunk.js",
     "static/media/deadpool.gif": "/static/media/deadpool.7cd84bf1ac3638a04ab5.gif",
     "static/media/logo.png": "/static/media/logo.bc1a4f0d67e3b8f00fee.png",
     "static/media/movies-app-background.jpg": "/static/media/movies-app-background.b1d294a516dd2d70ee9d.jpg",
     "index.html": "/index.html",
     "main.61942670.css.map": "/static/css/main.61942670.css.map",
-    "main.9cf1002e.js.map": "/static/js/main.9cf1002e.js.map",
+    "main.ec651e0e.js.map": "/static/js/main.ec651e0e.js.map",
     "453.b988c813.chunk.js.map": "/static/js/453.b988c813.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.61942670.css",
-    "static/js/main.9cf1002e.js"
+    "static/js/main.ec651e0e.js"
   ]
 }
