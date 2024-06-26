@@ -25,11 +25,18 @@ code {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+ width: 100%;
 }
 
 .header {
   width: 100%;
   background-color: #e9edc9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+  padding-left: 1rem;
 }
 
 .main-heading {
@@ -38,10 +45,6 @@ code {
   font-size: 3rem;
   width: fit-content;
   color: #000;
-  display:flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center; 
 }
 
 .main-heading:hover {
@@ -53,21 +56,13 @@ code {
   cursor: pointer;
 }
 
-.search-bar-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 1rem;
-}
-
 input {
+  text-align: center;
   font-size: 1.5rem;
   border-radius: 5px;
   border: none;
   padding: 0.5rem;
-  margin: 1rem 2rem;
-  min-width: 30vw;
+  min-width: 50vw;
 }
 
 input:focus {
@@ -110,7 +105,7 @@ ul {
 
 .search-history-container{
   text-align: center;
-  min-width: 25vw;
+  width: 100%;
 }
 
 .search-history-list p{
@@ -124,6 +119,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  text-align: left;
 }
 
 img {
@@ -223,9 +219,11 @@ input{
 .main-image-and-search-history-container{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 2rem;
+  width: 100%;
+  padding: 1rem 2rem;
   }
 
 .search-history-list{
@@ -233,6 +231,7 @@ input{
 }
 
 .search-history-list p{
+
   margin: 0.5rem;
 }
 
@@ -265,9 +264,15 @@ input{
   .main-image-and-search-history-container{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 2rem;
+  gap: 6rem;
+  padding: 0rem 2rem;
+  }
+
+  .search-history-container{
+    max-width: 25vw;
+    text-align: left;
   }
 
   .movies-list {
