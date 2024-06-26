@@ -1,43 +1,39 @@
 const express = require("express");
 const connectDB = require("./db/index");
 const cors = require("cors");
+const path = require("path");
 const requestLogger = require("./middlewares/requestLogger");
 const moviesRouter = require("./routes/moviesRouter");
 const searchHistoryRouter = require("./routes/searchHistoryRouter");
+
 const app = express();
-const path = require("path");
+const port = 3001;
 
 // Connect to MongoDB
 connectDB();
-const port = 3001;
 
-// we are going to log the request info
-// before we move forward
+// Middleware
 app.use(requestLogger);
-
-app.use(
-	cors({
-		// frontend url goes here
-		origin: " https://movies-app-j7xn.onrender.com",
-		// https://movies-app-j7xn.onrender.com
-		methods: ["GET", "POST", "PUT", "DELETE"],
-		credentials: true,
-	})
-);
+app.use(cors({
+	// https://movies-app-j7xn.onrender.com
+    // http://localhost:3000
+    origin: "https://movies-app-j7xn.onrender.com", // Frontend URL goes here
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+}));
 app.use(express.json());
-// |
-// V
+
+// Routes
 app.use("/movies", moviesRouter);
-// |
-// V
 app.use("/search-history", searchHistoryRouter);
-// |
-// V
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, "build")));
-app.get("/", function (req, res) {
-	res.sendFile(path.join(__dirname, "build", "index.html"));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"));
 });
-app.listen(port, function () {
-	console.log(`Working on port ${port}`);
+
+// Start server
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
 });
