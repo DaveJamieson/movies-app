@@ -39,20 +39,8 @@ code {
   padding-left: 0.5rem;
 }
 
-.main-heading {
-  cursor: pointer;
-  transition: color 0.3s ease-in-out;
-  font-size: 3rem;
-  width: fit-content;
-  color: #000;
-}
-
-.main-heading:hover {
-  color: #283618;
-}
-
 .main-heading-logo {
-  width: 6rem;
+  width: 7rem;
   cursor: pointer;
 }
 

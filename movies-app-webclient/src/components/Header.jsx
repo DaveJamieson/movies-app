@@ -56,9 +56,12 @@ const Header = ({
 
   return (
     <div className="header">
-      <h1 className="main-heading" onClick={handleHeadingClick}>
-        <img src={logo} alt="logo" className="main-heading-logo" />
-      </h1>
+      <img
+        src={logo}
+        alt="logo"
+        className="main-heading-logo"
+        onClick={handleHeadingClick}
+      />
       {searchBarInput && isLoading && <GradientCircularProgress />}
       <section className="search-bar-container">
         <SearchBar
