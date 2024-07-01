@@ -4,6 +4,7 @@ import cinemaPicture from "../assets/img/movies-app-background.jpg";
 import movieNight from "../assets/img/deadpool.gif";
 import SearchHistory from "./SearchHistory.jsx";
 import { logSearch } from "../api/movie-api.js";
+import defaultMoviePoster from "../assets/img/default-movie-poster.jpg"
 
 const Movies = ({ searchedMovie, searchError, searchBarInput }) => {
   const navigate = useNavigate();
@@ -11,6 +12,10 @@ const Movies = ({ searchedMovie, searchError, searchBarInput }) => {
     logSearch(imdbId, title);
     const movieDetailsRoute = `/movie-details/${imdbId}`;
     navigate(movieDetailsRoute);
+  };
+
+  const getPosterSrc = (movie) => {
+    return movie.Poster && movie.Poster !== "N/A" ? movie.Poster : defaultMoviePoster;
   };
 
   return (
@@ -38,7 +43,7 @@ const Movies = ({ searchedMovie, searchError, searchBarInput }) => {
                   <article className="movies-list-item-image-container">
                     <img
                       className="movies-list-item-image"
-                      src={movie.Poster}
+                      src={getPosterSrc(movie)}
                       alt={movie.imdbID}
                     />
                   </article>

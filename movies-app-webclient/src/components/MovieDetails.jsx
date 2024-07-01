@@ -2,6 +2,7 @@ import { fetchMovieDetails } from "../api/movie-api";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import GradientCircularProgress from "./GradientCircularProgress.jsx";
+import defaultMoviePoster from "../assets/img/default-movie-poster.jpg"
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -39,6 +40,11 @@ const MovieDetails = () => {
     };
   }, [movieId]);
 
+  const getPosterSrc = () => {
+    return movieDetails.Poster && movieDetails.Poster !== "N/A" ? movieDetails.Poster : defaultMoviePoster;
+  };
+
+
   return (
     <>
       <div className="movie-details-container">
@@ -51,7 +57,7 @@ const MovieDetails = () => {
         {movieDetails.Title && (
           <section className="movie-info-container">
             <article className="movie-image">
-              <img src={movieDetails.Poster} alt={movieDetails.Title} />
+              <img src={getPosterSrc()} alt={movieDetails.Title} />
             </article>
             <article className="movie-info">
               <p>

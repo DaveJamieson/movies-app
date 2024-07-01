@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.079015cf.css",
-    "main.js": "/static/js/main.b8fd0a7c.js",
+    "main.css": "/static/css/main.6474c996.css",
+    "main.js": "/static/js/main.aa2c457e.js",
     "static/js/453.b988c813.chunk.js": "/static/js/453.b988c813.chunk.js",
     "static/media/deadpool.gif": "/static/media/deadpool.7cd84bf1ac3638a04ab5.gif",
     "static/media/logo.png": "/static/media/logo.bc1a4f0d67e3b8f00fee.png",
+    "static/media/default-movie-poster.jpg": "/static/media/default-movie-poster.71253f31d01ef6cdd4cc.jpg",
     "static/media/movies-app-background.jpg": "/static/media/movies-app-background.b1d294a516dd2d70ee9d.jpg",
     "index.html": "/index.html",
-    "main.079015cf.css.map": "/static/css/main.079015cf.css.map",
-    "main.b8fd0a7c.js.map": "/static/js/main.b8fd0a7c.js.map",
+    "main.6474c996.css.map": "/static/css/main.6474c996.css.map",
+    "main.aa2c457e.js.map": "/static/js/main.aa2c457e.js.map",
     "453.b988c813.chunk.js.map": "/static/js/453.b988c813.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.079015cf.css",
-    "static/js/main.b8fd0a7c.js"
+    "static/css/main.6474c996.css",
+    "static/js/main.aa2c457e.js"
   ]
 }
