@@ -13,7 +13,6 @@ Check out the live version of the app [here](https://movies-app-j7xn.onrender.co
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
-- [API Endpoints](#api-endpoints)
 - [License](#license)
 
 ## Installation
@@ -124,9 +123,9 @@ movies-app/
 │   └── package-lock.json
 └── .gitignore
 ```
-##License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
-###This project was created as a demonstration of my full-stack development skills. I hope you find it useful and inspiring. Feel free to reach out if you have any questions or feedback!
+### This project was created as a demonstration of my full-stack development skills. I hope you find it useful and inspiring. Feel free to reach out if you have any questions or feedback!
 
 Happy coding!
