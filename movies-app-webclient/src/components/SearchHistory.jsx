@@ -61,3 +61,5 @@ const SearchHistory = () => {
 };
 
 export default SearchHistory;
+
+{/* conditional - while item count < 4 return 4 otherwise hide the extras */}
